@@ -11,11 +11,41 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{E2B35652-F678-4319-9160-AF928555E6AA}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{F43CDE66-E070-446A-ABB1-8FE3C08210A4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ftp01ulatina@nodarkside.net]"
+      DTS:CreationName="FTP"
+      DTS:DTSID="{4BB54F43-9BF8-4108-ACD9-E157B5DAAA70}"
+      DTS:ObjectName="ftp01ulatina@nodarkside.net">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="ftp.nodarkside.net:21">
+          <DTS:FtpConnection
+            DTS:ServerName="ftp.nodarkside.net"
+            DTS:ServerUserName="ftp01ulatina@nodarkside.net">
+            <DTS:Property
+              DTS:Name="ServerPassword"
+              Sensitive="1"
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjKICL3JueUCcSUyovFiu7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADKXTKy5gkr2/navfn4FnLkAAAAAASAAACgAAAAEAAAAAjB+7uwNphlJmaY721P7ywgAAAA7Xh6UUKQWHXo2nSZVU/yJ7zjMvymsCQTSPb9acLB62YUAAAAp/fCmBAtYTnLVfBq/V95M37ZFys</DTS:Property>
+          </DTS:FtpConnection>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[local]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{A0B7C7FC-85FA-4A3F-BF92-C4C484B89DFA}"
+      DTS:ObjectName="local">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="3"
+          DTS:ConnectionString="C:\local" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.AdventureWorks2014.sa]"
       DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
@@ -27,7 +57,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAEbvueVkSUkarW92Z4q1RawAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACYgry+ldL8k+IqfPBl8tA3AAAAAASAAACgAAAAEAAAAKkwU/p4zsygFtlRSsAYK84IAAAA0VW5BZhnG9IUAAAAkG+ZglWkaKda9n3ZPqEMu/7EXkE</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjKICL3JueUCcSUyovFiu7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADIaRpbNYtH9X3kndcz8oscAAAAAASAAACgAAAAEAAAANQrhn23lKQ4a9VHBlDic2MIAAAA64DLD8vfzQoUAAAA5VmRyzuKy+lmMK5V+az2nkj45uo</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -42,7 +72,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAEbvueVkSUkarW92Z4q1RawAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABpir5rVKUgSMIxLeA7VhIsAAAAAASAAACgAAAAEAAAAPLCDvTYJchDv0EmIvacMSEIAAAAIUnZI+NrtiMUAAAAmi4HsoRsh4wvjEx+bIIezt7KMJ4</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjKICL3JueUCcSUyovFiu7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAfFnO0/jVIjWaGO/3pwgqgAAAAAASAAACgAAAAEAAAAMKjS7L8SyaJOr3xip2NdWMIAAAAdgilRXgv/tAUAAAAW8r4oabuaLSZTipMwg3HDb+84N0</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -68,10 +98,20 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{B41C09AC-5FC3-4869-BF42-CD1407852278}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="p_encKey">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{7D6DA22D-13B0-47E5-BEBB-B0A037F0340C}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="p_encryption">
+      DTS:ObjectName="p_encType">
       <DTS:VariableValue
         DTS:DataType="8"
         xml:space="preserve"></DTS:VariableValue>
@@ -83,8 +123,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="p_ftpInputPath">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="8">/</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -93,8 +132,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="p_ftpOutputPath">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="8">/</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -128,10 +166,10 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{B41C09AC-5FC3-4869-BF42-CD1407852278}"
+      DTS:DTSID="{9ABEC8AB-BA7C-486B-9331-77B5C6091B38}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
-      DTS:ObjectName="p_key">
+      DTS:ObjectName="p_local_path">
       <DTS:VariableValue
         DTS:DataType="8"
         xml:space="preserve"></DTS:VariableValue>
@@ -139,35 +177,13 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Execute SQL Task"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{F1F5FFC9-37F3-488B-A0F7-FA41371DA39B}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{6950E764-3885-4B0F-8325-9A3F85EDB4D2}"
-          SQLTask:SqlStatementSource="select * from Configs where id = 1"
-          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:ResultBinding
-            SQLTask:ResultName="0"
-            SQLTask:DtsVariableName="User::p_allParams" />
-        </SQLTask:SqlTaskData>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Foreach Loop Container"
+      DTS:refId="Package\Cargar parametros a variables"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
       DTS:DTSID="{750E5EC7-53AC-467F-A35D-9A09C847C177}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Foreach Loop Container">
+      DTS:ObjectName="Cargar parametros a variables">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachADOEnumerator"
         DTS:DTSID="{562E7BE2-962D-4B35-A757-EEA83A17B493}"
@@ -183,47 +199,97 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{A19623D9-35DE-429A-A347-928F1548C6D3}"
-          DTS:ObjectName="{A19623D9-35DE-429A-A347-928F1548C6D3}"
+          DTS:DTSID="{2B575B20-453A-4431-B86D-A7FBA950C065}"
+          DTS:ObjectName="{2B575B20-453A-4431-B86D-A7FBA950C065}"
           DTS:ValueIndex="1"
           DTS:VariableName="User::p_ftpServer" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{A3FDC5D7-9A12-49A3-8419-D53353BC1F46}"
-          DTS:ObjectName="{A3FDC5D7-9A12-49A3-8419-D53353BC1F46}"
+          DTS:DTSID="{1CEE8A24-7A1C-4545-9C9B-5E2D1269ADA2}"
+          DTS:ObjectName="{1CEE8A24-7A1C-4545-9C9B-5E2D1269ADA2}"
           DTS:ValueIndex="2"
           DTS:VariableName="User::p_ftpUser" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{732F7146-87A9-457E-A375-68F8F83AAD76}"
-          DTS:ObjectName="{732F7146-87A9-457E-A375-68F8F83AAD76}"
+          DTS:DTSID="{15DFB093-642A-4041-BFEC-BBED3B40B3E4}"
+          DTS:ObjectName="{15DFB093-642A-4041-BFEC-BBED3B40B3E4}"
           DTS:ValueIndex="3"
           DTS:VariableName="User::p_ftpPass" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{1FF29909-A035-439F-8052-82D06631CEF0}"
-          DTS:ObjectName="{1FF29909-A035-439F-8052-82D06631CEF0}"
+          DTS:DTSID="{013AB121-9375-4699-82A9-E3A555580BBB}"
+          DTS:ObjectName="{013AB121-9375-4699-82A9-E3A555580BBB}"
           DTS:ValueIndex="4"
           DTS:VariableName="User::p_ftpInputPath" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{3BCD7B52-24D9-4A56-9B07-8D43113DE6DE}"
-          DTS:ObjectName="{3BCD7B52-24D9-4A56-9B07-8D43113DE6DE}"
+          DTS:DTSID="{218F1681-F01D-44C0-BE4E-3F0A07BC3E2C}"
+          DTS:ObjectName="{218F1681-F01D-44C0-BE4E-3F0A07BC3E2C}"
           DTS:ValueIndex="5"
           DTS:VariableName="User::p_ftpOutputPath" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{3B3C9B8A-B65B-40DD-8461-68BC7DA99B64}"
-          DTS:ObjectName="{3B3C9B8A-B65B-40DD-8461-68BC7DA99B64}"
+          DTS:DTSID="{BD5F6D34-38CC-487D-91B9-E4859ACFB8F7}"
+          DTS:ObjectName="{BD5F6D34-38CC-487D-91B9-E4859ACFB8F7}"
           DTS:ValueIndex="6"
-          DTS:VariableName="User::p_encryption" />
+          DTS:VariableName="User::p_encType" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{0843F947-BA2E-4243-B396-B1E3E7D13EEC}"
-          DTS:ObjectName="{0843F947-BA2E-4243-B396-B1E3E7D13EEC}"
+          DTS:DTSID="{171012A8-F1D0-41A9-96DD-857D7AFE234F}"
+          DTS:ObjectName="{171012A8-F1D0-41A9-96DD-857D7AFE234F}"
           DTS:ValueIndex="7"
-          DTS:VariableName="User::p_key" />
+          DTS:VariableName="User::p_encKey" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{62DD005E-E62D-42A0-946B-A2E08C94A2F2}"
+          DTS:ObjectName="{62DD005E-E62D-42A0-946B-A2E08C94A2F2}"
+          DTS:ValueIndex="8"
+          DTS:VariableName="User::p_local_path" />
       </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FTP Task"
+      DTS:CreationName="Microsoft.FtpTask"
+      DTS:Description="FTP Task"
+      DTS:DTSID="{F6CACA2B-2132-4604-9B65-8F1664A0B398}"
+      DTS:ExecutableType="Microsoft.FtpTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FTP Task"
+      DTS:TaskContact="FTP Task; Microsoft Corporation; SQL Server 2017 RC1; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FtpData
+          ConnectionName="{4BB54F43-9BF8-4108-ACD9-E157B5DAAA70}"
+          TaskOperationType="Receive"
+          TaskIsLocalPathVar="True"
+          TaskLocalPath="User::p_local_path"
+          TaskIsRemotePathVar="True"
+          TaskRemotePath="User::p_ftpInputPath"
+          TaskOverwriteDest="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Leer parametros de servidor FTP desde DB"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F1F5FFC9-37F3-488B-A0F7-FA41371DA39B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Leer parametros de servidor FTP desde DB"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6950E764-3885-4B0F-8325-9A3F85EDB4D2}"
+          SQLTask:SqlStatementSource="select * from Configs where id = 1"
+          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::p_allParams" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
@@ -231,10 +297,18 @@
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
       DTS:DTSID="{B959A21A-86BF-4625-A2FF-6DD915D94551}"
-      DTS:From="Package\Execute SQL Task"
+      DTS:From="Package\Leer parametros de servidor FTP desde DB"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Foreach Loop Container" />
+      DTS:To="Package\Cargar parametros a variables" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{F1F734F4-7E9D-4B9C-92B2-F7E1E8924615}"
+      DTS:From="Package\Cargar parametros a variables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\FTP Task" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -247,32 +321,82 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="163,42"
-          Id="Package\Execute SQL Task"
+          Size="203,73"
+          Id="Package\Leer parametros de servidor FTP desde DB"
           TopLeft="44,43" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="False"
-          PanelSize="205,55"
-          Size="214,43"
-          Id="Package\Foreach Loop Container"
-          TopLeft="234,44" />
+          PanelSize="214,55"
+          Size="244,43"
+          Id="Package\Cargar parametros a variables"
+          TopLeft="51,148" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="207,64.75">
+          TopLeft="145.5,116">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="27,0"
+              EndConnector="27.5,32"
               Start="0,0"
-              End="19.5,0">
+              End="27.5,24.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="19.5,0" />
+                    End="0,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="4,16" />
+                  <mssgle:LineSegment
+                    End="23.5,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.5,16"
+                    Point2="27.5,16"
+                    Point3="27.5,20" />
+                  <mssgle:LineSegment
+                    End="27.5,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="122,42"
+          Id="Package\FTP Task"
+          TopLeft="121,229" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="173,191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,38"
+              Start="0,0"
+              End="9,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="4,19" />
+                  <mssgle:LineSegment
+                    End="5,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,19"
+                    Point2="9,19"
+                    Point3="9,23" />
+                  <mssgle:LineSegment
+                    End="9,30.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{7D349C02-EEBA-4616-9347-410B0B9F4BCA}">
+  DTS:VersionBuild="45"
+  DTS:VersionGUID="{172B53B6-9184-4D2D-AC88-BA1C1D7AD734}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -35,7 +35,7 @@
             <DTS:Property
               DTS:Name="ServerPassword"
               Sensitive="1"
-              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjKICL3JueUCcSUyovFiu7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADPziTIN8FvKwkSrGVg+8yfAAAAAASAAACgAAAAEAAAAPVAvZUfBo9Y9w0URVA1+sMIAAAAsflipWyK7VYUAAAAgzmmm3E/82DPwx1WsdczD4nTYKo</DTS:Property>
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjKICL3JueUCcSUyovFiu7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB4DDnv9mYHdYAQe0bImrgdAAAAAASAAACgAAAAEAAAAHT9mUwjMhm4r1OCoCfT/YoIAAAACSwcX6bFzXEUAAAAYGhaCrfzvf+qu848WiKWVMCV5BU</DTS:Property>
           </DTS:FtpConnection>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
@@ -51,7 +51,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjKICL3JueUCcSUyovFiu7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACGCnFXD/UM1AMizgOWvelTAAAAAASAAACgAAAAEAAAAMuDb9+hfmbtyucwHH7IrzIgAAAA5KlFCsd3Ayxzsfsawb1QSnIpz4T9lyPXhtDb2rxsT10UAAAALHDkDB4vPioS9aIEh6Rt8QHHy24</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjKICL3JueUCcSUyovFiu7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABqYHaQVWVe9zmc0Pohv/szAAAAAASAAACgAAAAEAAAAL3sTXM6nyY40V3Fenk2jg8gAAAAkubJCYAD/RqA5ZCn/xqd5qkByYBpvNUkm9EFVD2idvwUAAAAk23diGBAfV/9bQLpAJFyJsrxcgc</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -68,6 +68,15 @@
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{30E0A467-8FE8-422D-BDDD-6879616B581B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="file_to_process">
+      <DTS:VariableValue
+        DTS:DataType="8">.</DTS:VariableValue>
+    </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{B15F00A1-DA70-4A53-9F3F-B227709C692C}"
@@ -161,8 +170,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="p_local_path">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="8">C:\</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -279,6 +287,7 @@
           Executable="C:\Program Files\7-Zip\7z.exe"
           RequireFullFileName="False"
           Arguments="e -p -y *.zip"
+          WorkingDirectory="C:\"
           WindowStyle="Hidden" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -303,6 +312,60 @@
             SQLTask:DtsVariableName="User::p_allParams" />
         </SQLTask:SqlTaskData>
       </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Procesar archivos"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{5133ECC5-2BBD-4ED8-B057-C3445B937923}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Procesar archivos">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{D0BBD2DA-3926-4F85-B621-1F0DD111BDE8}"
+        DTS:ObjectName="{D0BBD2DA-3926-4F85-B621-1F0DD111BDE8}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[User::p_local_path]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\" />
+            <FEFEProperty
+              FileSpec="*.txt" />
+            <FEFEProperty
+              FileNameRetrievalType="1" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Procesar archivos\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{5F5408C0-589D-4830-B132-D437C1277ED6}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{4861931F-9F57-44A9-B99D-A3E6EE241D17}"
+          DTS:ObjectName="{4861931F-9F57-44A9-B99D-A3E6EE241D17}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::file_to_process" />
+      </DTS:ForEachVariableMappings>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
@@ -330,6 +393,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
       DTS:To="Package\Execute Process Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{596C7D7D-08A3-4F84-BA96-00444A3CFBB7}"
+      DTS:From="Package\Execute Process Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Procesar archivos" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -342,7 +413,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <ContainerLayout
           HeaderHeight="58"
           IsExpanded="False"
@@ -354,6 +425,10 @@
           Size="168,42"
           Id="Package\Descargar archivos"
           TopLeft="489,39" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Execute Process Task"
+          TopLeft="486.5,118" />
         <NodeLayout
           Size="189,60"
           Id="Package\Leer parametros de servidor FTP desde DB"
@@ -372,6 +447,28 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="16.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="574.75,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -403,23 +500,36 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="180,42"
-          Id="Package\Execute Process Task"
-          TopLeft="486.5,118" />
+          Size="151,42"
+          Id="Package\Procesar archivos\Data Flow Task"
+          TopLeft="67,31" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="319,172"
+          Size="319,215"
+          Id="Package\Procesar archivos"
+          TopLeft="146,171" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="574.75,81">
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="486.5,139">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,37"
+              EndConnector="-181,32"
               Start="0,0"
-              End="0,29.5">
+              End="-181,24.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.5" />
+                    End="-177,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-177,0"
+                    Point2="-181,0"
+                    Point3="-181,4" />
+                  <mssgle:LineSegment
+                    End="-181,24.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

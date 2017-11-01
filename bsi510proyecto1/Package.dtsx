@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{9B0B6251-A85C-49AD-90C3-E520E81336F7}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{7D349C02-EEBA-4616-9347-410B0B9F4BCA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -21,16 +21,21 @@
       DTS:CreationName="FTP"
       DTS:DTSID="{4BB54F43-9BF8-4108-ACD9-E157B5DAAA70}"
       DTS:ObjectName="ftp01ulatina@nodarkside.net">
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[User::p_ftpServer]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerPassword">@[User::p_ftpPass]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerUserName">@[User::p_ftpUser]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="ftp.nodarkside.net:21">
+          DTS:ConnectionString=":21">
           <DTS:FtpConnection
-            DTS:ServerName="ftp.nodarkside.net"
-            DTS:ServerUserName="ftp01ulatina@nodarkside.net">
+            DTS:ServerName="">
             <DTS:Property
               DTS:Name="ServerPassword"
               Sensitive="1"
-              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjKICL3JueUCcSUyovFiu7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAABj3gO2WYj1R5WUMd9BrOJWAAAAAASAAACgAAAAEAAAAJa1UB1RnVOAzg4TU/Riez0gAAAAiC2+ykabbuI/OZ6ezmIZyz36SpB1aXwPSX/Py3G9aU4UAAAAqZ35D2TIbWsC5QDSH6BezhBqOpE</DTS:Property>
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjKICL3JueUCcSUyovFiu7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADPziTIN8FvKwkSrGVg+8yfAAAAAASAAACgAAAAEAAAAPVAvZUfBo9Y9w0URVA1+sMIAAAAsflipWyK7VYUAAAAgzmmm3E/82DPwx1WsdczD4nTYKo</DTS:Property>
           </DTS:FtpConnection>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
@@ -46,7 +51,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjKICL3JueUCcSUyovFiu7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACQwNfCPXKedPDg67jyvXVAAAAAAASAAACgAAAAEAAAAJ4erMkhgIu/LneC+K7npccgAAAAs9mfsKiodNq5l57wMOrrVcmlDs49p33tB3XQ9fqthoMUAAAAFPkVaNfRAn32d9zkiktHeemkJmw</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjKICL3JueUCcSUyovFiu7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACGCnFXD/UM1AMizgOWvelTAAAAAASAAACgAAAAEAAAAMuDb9+hfmbtyucwHH7IrzIgAAAA5KlFCsd3Ayxzsfsawb1QSnIpz4T9lyPXhtDb2rxsT10UAAAALHDkDB4vPioS9aIEh6Rt8QHHy24</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -162,13 +167,13 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Cargar parametros a variables"
+      DTS:refId="Package\Cargar parametros del servidor FTP a variables"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
       DTS:DTSID="{750E5EC7-53AC-467F-A35D-9A09C847C177}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Cargar parametros a variables">
+      DTS:ObjectName="Cargar parametros del servidor FTP a variables">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachADOEnumerator"
         DTS:DTSID="{562E7BE2-962D-4B35-A757-EEA83A17B493}"
@@ -233,13 +238,13 @@
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\FTP Task"
+      DTS:refId="Package\Descargar archivos"
       DTS:CreationName="Microsoft.FtpTask"
       DTS:Description="FTP Task"
       DTS:DTSID="{F6CACA2B-2132-4604-9B65-8F1664A0B398}"
       DTS:ExecutableType="Microsoft.FtpTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="FTP Task"
+      DTS:ObjectName="Descargar archivos"
       DTS:TaskContact="FTP Task; Microsoft Corporation; SQL Server 2017 RC1; (c) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
@@ -252,6 +257,29 @@
           TaskIsRemotePathVar="True"
           TaskRemotePath="User::p_ftpInputPath"
           TaskOverwriteDest="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute Process Task"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{CFD522B2-777A-48F9-8DE2-FAEE09649033}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Process Task"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="Arguments">"e -p"+ @[User::p_encKey] +" -y *.zip"</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="WorkingDirectory">@[User::p_local_path]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="C:\Program Files\7-Zip\7z.exe"
+          RequireFullFileName="False"
+          Arguments="e -p -y *.zip"
+          WindowStyle="Hidden" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -285,15 +313,23 @@
       DTS:From="Package\Leer parametros de servidor FTP desde DB"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Cargar parametros a variables" />
+      DTS:To="Package\Cargar parametros del servidor FTP a variables" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
       DTS:DTSID="{F1F734F4-7E9D-4B9C-92B2-F7E1E8924615}"
-      DTS:From="Package\Cargar parametros a variables"
+      DTS:From="Package\Cargar parametros del servidor FTP a variables"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\FTP Task" />
+      DTS:To="Package\Descargar archivos" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{91B5FAFF-7FE9-49D5-BCCA-C958F5FF65C0}"
+      DTS:From="Package\Descargar archivos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Execute Process Task" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -308,34 +344,34 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <ContainerLayout
-          HeaderHeight="43"
+          HeaderHeight="58"
           IsExpanded="False"
           PanelSize="244,55"
-          Size="244,43"
-          Id="Package\Cargar parametros a variables"
-          TopLeft="36,94" />
+          Size="233,58"
+          Id="Package\Cargar parametros del servidor FTP a variables"
+          TopLeft="228,28" />
         <NodeLayout
-          Size="122,42"
-          Id="Package\FTP Task"
-          TopLeft="94,164" />
+          Size="168,42"
+          Id="Package\Descargar archivos"
+          TopLeft="489,39" />
         <NodeLayout
-          Size="281,42"
+          Size="189,60"
           Id="Package\Leer parametros de servidor FTP desde DB"
-          TopLeft="18,14" />
+          TopLeft="15,26" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="158.25,56">
+          TopLeft="204,56.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,38"
+              EndConnector="24,0"
               Start="0,0"
-              End="0,30.5">
+              End="16.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.5" />
+                    End="16.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -346,18 +382,44 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="156.5,137">
+          TopLeft="461,58.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,27"
+              EndConnector="28,0"
               Start="0,0"
-              End="0,19.5">
+              End="20.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.5" />
+                    End="20.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Execute Process Task"
+          TopLeft="486.5,118" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="574.75,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

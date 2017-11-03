@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="61"
-  DTS:VersionGUID="{3C1E175E-6D7E-4768-87D9-D4D5BC329CB8}">
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{482CB501-1AF8-46A8-9E81-7331FC8383CB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -47,7 +47,7 @@
             <DTS:Property
               DTS:Name="ServerPassword"
               Sensitive="1"
-              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjKICL3JueUCcSUyovFiu7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAD6oaFukmxbuSKQIdvkeRewAAAAAASAAACgAAAAEAAAAPEb4H9DlwIoHlhe6mfVsMEIAAAARB4B5TK453QUAAAAcmyOG5ZF4eHLZ2jVBNps3xrf9K0</DTS:Property>
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjKICL3JueUCcSUyovFiu7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADpxtfDjx9u0wcdT5r/EiloAAAAAASAAACgAAAAEAAAAH1EOS0l5GrvQmq12jx1g4YIAAAAaGFfaYstb+wUAAAA6Iiqf2KUs2gnv1utvMUvYPa+1NE</DTS:Property>
           </DTS:FtpConnection>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
@@ -63,7 +63,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjKICL3JueUCcSUyovFiu7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAxGx4LGGGTrVX8iTiW7QpDAAAAAASAAACgAAAAEAAAAId6p62/5tCuytYfT0NPqk0gAAAAaSuGpL92/hUOrL+3nzKwYMGYALzxyocEvkpS7bhauWsUAAAA6vCnqaGjuXTEdujxrg/UsPWS7iY</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjKICL3JueUCcSUyovFiu7gAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACfKOIuXGCWKF3Tw8TimiFKAAAAAASAAACgAAAAEAAAAE/bCTQ/d5Zuau6UUxRsZOsgAAAAa94i+zFFPhRPKGr0XD1BrCaZ5ZzELjqzAvUZ7jwXWT8UAAAA7C6RGO7eHcREPP95eximiq8DWvw</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -416,12 +416,32 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{E4E3C5FD-2E2E-4D2F-80C5-1EACA9487422}"
+      DTS:DTSID="{25F4F56F-4DE9-4914-9DBB-DB4C232FFB67}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="log_count">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{76C72E80-E5B1-44E5-BF5D-7E9EEE9F8B40}"
       DTS:IncludeInDebugDump="6789"
       DTS:Namespace="User"
-      DTS:ObjectName="log_record">
+      DTS:ObjectName="log_ts_end">
       <DTS:VariableValue
         DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E4E3C5FD-2E2E-4D2F-80C5-1EACA9487422}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="log_ts_start">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -2484,7 +2504,7 @@
         <NodeLayout
           Size="151,42"
           Id="Package\Procesar archivos Detail\Data Flow Task"
-          TopLeft="30.5714285714286,28" />
+          TopLeft="140.571428571429,57" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="82"
-  DTS:VersionGUID="{59897303-415B-43D1-8922-D13B9A654899}">
+  DTS:VersionBuild="99"
+  DTS:VersionGUID="{3F02C622-A292-4462-97AB-F06072A3F361}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -47,7 +47,7 @@
             <DTS:Property
               DTS:Name="ServerPassword"
               Sensitive="1"
-              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAp6snW/qnUE2TjNC9GpThgAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAhzihybOnyGKt89v3EZADwjLO+tACNrBuxGGlYVMEqvQAAAAAOgAAAAAIAACAAAACvV6mEUIJ7xeSgU/m2MN5WVh5yGIdDtoq83z0v6JKjlRAAAABy1MrCtLsdtBiY3LmqDLKkQAAAAN5uLl+2OOk3xO+78QQ/8kaTvHH49BR7gSbkuevJ0YxzTK7sJRaDzI9eCmE/giG0NrMYK3MAWkyTyud2eF2hgoM</DTS:Property>
+              Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAp6snW/qnUE2TjNC9GpThgAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAe8jxaAH5pYlMtoS2NrlTwrwh54f9ErLRdS+B+/8ohTQAAAAAOgAAAAAIAACAAAABVW5yA6qtGtSN9M9ABe8PzD/PkALZl/TL5q2gq7CLFmBAAAACOguaOKJBg4aA7elrbyzquQAAAANPTlxEBMywzO/JT+L7X28Xxd97KwukIY7WTNhAhLka8jAKbKhr674drBqrI505+FxmY48QNMh/+E6RKWxn1JtA</DTS:Property>
           </DTS:FtpConnection>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
@@ -63,7 +63,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAp6snW/qnUE2TjNC9GpThgAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABYWdQdsXdc/k1tsBz1fkZN7q/QXFwYwWddU/fwaPg25QAAAAAOgAAAAAIAACAAAAAOgS3xbk2VgICuVpEybF6uuNnYOvPD0+vb9AMbaizWtiAAAAA7ztRNwiyY9zF2GspPToABa6JWwNfqAZlx0we4dVBWekAAAAB1yydXm0e6KyMZEuCmQE69ilU1YW0kVfwqGigC6TxJCnDmNiC9HfXTizm9bjeaZklQfPFllkQ7VxZsX7GEgx3y</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAp6snW/qnUE2TjNC9GpThgAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABPKQQYPMAao8/YGoA5A+3gDA7SlxdhCFFnbsQscZvFvwAAAAAOgAAAAAIAACAAAAC1wo9E9Mi115HRDvD0/DRsqOY1zcHFldeiu/Uws89KvSAAAACV2a6Fy1m88XscdQ8zKibrIViGvxO99zkUWuvHR4+f7EAAAADQbMGLhAsIu/UJhyHb6QvsbrcYa0bopqJYJass5s7swzAFrqAfON0fBtaghKW7iHa5dCjmMy/CvRxQdu+KSbB5</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -407,6 +407,17 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{759A5C0C-C11A-4391-BF28-1786C950B620}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::log_file_review_result]&gt;0"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="file_processed">
+      <DTS:VariableValue
+        DTS:DataType="11">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{30E0A467-8FE8-422D-BDDD-6879616B581B}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
@@ -425,12 +436,23 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
+      DTS:DTSID="{9FB165CA-57CF-4F1F-A19E-938F87F46279}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="log_file_review_result">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
       DTS:DTSID="{AD13CF6F-B52D-48B3-9C3F-DD66E5B7951A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::file_processed]  ? &quot;Rechazado&quot; : &quot;Procesado&quot;"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="log_message">
       <DTS:VariableValue
-        DTS:DataType="8">No issues</DTS:VariableValue>
+        DTS:DataType="8">Procesado</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -873,26 +895,6 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Limpia tablas Detail y Header"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:Disabled="True"
-      DTS:DTSID="{2EB3FB0B-9DE7-4CEC-A2C5-17E7183B3A6F}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Limpia tablas Detail y Header"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{AC37CE57-5559-48F6-9C8D-F29918087536}"
-          SQLTask:SqlStatementSource="truncate table SalesLT.SalesOrderDetailBSI;&#xA;truncate table SalesLT.SalesOrderHeaderBSI;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Procesar archivos Detail"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
@@ -923,6 +925,22 @@
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
       <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Procesar archivos Detail\Expression Task"
+          DTS:CreationName="Microsoft.ExpressionTask"
+          DTS:Description="Expression Task"
+          DTS:DTSID="{5E87A987-A31E-4079-9A1F-70C390084769}"
+          DTS:ExecutableType="Microsoft.ExpressionTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Expression Task"
+          DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExpressionTask
+              Expression="@[User::log_count]=@[User::file_processed]  ? 0 : @[User::log_count]" />
+          </DTS:ObjectData>
+        </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Procesar archivos Detail\Log end time"
           DTS:CreationName="Microsoft.ExpressionTask"
@@ -1009,6 +1027,34 @@
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="5"
                 SQLTask:DtsVariableName="User::log_message"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Procesar archivos Detail\Revisar bitacora"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6D554197-C4DD-44DB-8BB4-9BA9A4131405}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Revisar bitacora"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AC37CE57-5559-48F6-9C8D-F29918087536}"
+              SQLTask:SqlStatementSource="select count(*) from dbo.bitacora where filename=? AND load_count &gt; 0"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::log_file_review_result" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::file_to_process"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="-1" />
@@ -1330,6 +1376,88 @@
                   </outputs>
                 </component>
                 <component
+                  refId="Package\Procesar archivos Detail\SQL Insert Detail\Conditional Split"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Procesar archivos Detail\SQL Insert Detail\Conditional Split.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Procesar archivos Detail\SQL Insert Detail\Conditional Split.Outputs[ArchivoProcesado]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="ArchivoProcesado"
+                      synchronousInputId="Package\Procesar archivos Detail\SQL Insert Detail\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">@[User::file_processed]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::file_processed]</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Procesar archivos Detail\SQL Insert Detail\Conditional Split.Outputs[ArchivoNoHaSidoProcesado]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="ArchivoNoHaSidoProcesado"
+                      synchronousInputId="Package\Procesar archivos Detail\SQL Insert Detail\Conditional Split.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Procesar archivos Detail\SQL Insert Detail\Conditional Split.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Procesar archivos Detail\SQL Insert Detail\Conditional Split.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Procesar archivos Detail\SQL Insert Detail\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Procesar archivos Detail\SQL Insert Detail\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Procesar archivos Detail\SQL Insert Detail\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Procesar archivos Detail\SQL Insert Detail\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\Procesar archivos Detail\SQL Insert Detail\Envía registros a SalesOrderDetailBSI"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -1551,8 +1679,13 @@
               </components>
               <paths>
                 <path
-                  refId="Package\Procesar archivos Detail\SQL Insert Detail.Paths[Flat File Source Output]"
+                  refId="Package\Procesar archivos Detail\SQL Insert Detail.Paths[ArchivoNoHaSidoProcesado]"
                   endId="Package\Procesar archivos Detail\SQL Insert Detail\Row Count.Inputs[Row Count Input 1]"
+                  name="ArchivoNoHaSidoProcesado"
+                  startId="Package\Procesar archivos Detail\SQL Insert Detail\Conditional Split.Outputs[ArchivoNoHaSidoProcesado]" />
+                <path
+                  refId="Package\Procesar archivos Detail\SQL Insert Detail.Paths[Flat File Source Output]"
+                  endId="Package\Procesar archivos Detail\SQL Insert Detail\Conditional Split.Inputs[Conditional Split Input]"
                   name="Flat File Source Output"
                   startId="Package\Procesar archivos Detail\SQL Insert Detail\Carga archivo Detail.Outputs[Flat File Source Output]" />
                 <path
@@ -1585,10 +1718,26 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Procesar archivos Detail.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
-          DTS:DTSID="{90116ED4-A4D5-4D18-9BBE-C9950E4377CB}"
+          DTS:DTSID="{EDFA8B75-5700-498E-B4E2-194EEE1B0387}"
           DTS:From="Package\Procesar archivos Detail\Log end time"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Procesar archivos Detail\Expression Task" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Procesar archivos Detail.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{1A4F481E-0BC6-48FB-80B9-59D792F6CC80}"
+          DTS:From="Package\Procesar archivos Detail\Revisar bitacora"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Procesar archivos Detail\Log start time" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Procesar archivos Detail.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{F24A21FF-FD7B-4C69-AA58-4CF50B1CDA13}"
+          DTS:From="Package\Procesar archivos Detail\Expression Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
           DTS:To="Package\Procesar archivos Detail\Registrar carga de registros" />
       </DTS:PrecedenceConstraints>
       <DTS:ForEachVariableMappings>
@@ -1631,6 +1780,22 @@
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
       <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Procesar archivos Header\Expression Task"
+          DTS:CreationName="Microsoft.ExpressionTask"
+          DTS:Description="Expression Task"
+          DTS:DTSID="{529caa2a-d897-405f-b81e-5d6b82ab6da3}"
+          DTS:ExecutableType="Microsoft.ExpressionTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Expression Task"
+          DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExpressionTask
+              Expression="@[User::log_count]=@[User::file_processed]  ? 0 : @[User::log_count]" />
+          </DTS:ObjectData>
+        </DTS:Executable>
         <DTS:Executable
           DTS:refId="Package\Procesar archivos Header\Log end time"
           DTS:CreationName="Microsoft.ExpressionTask"
@@ -1717,6 +1882,34 @@
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="5"
                 SQLTask:DtsVariableName="User::log_message"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Procesar archivos Header\Revisar bitacora"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{21fc7934-f53b-4c6f-b8ef-9f895c9eb431}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Revisar bitacora"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{AC37CE57-5559-48F6-9C8D-F29918087536}"
+              SQLTask:SqlStatementSource="select count(*) from dbo.bitacora where filename=? AND load_count &gt; 0"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::log_file_review_result" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::file_to_process"
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="129"
                 SQLTask:ParameterSize="-1" />
@@ -2376,6 +2569,88 @@
                   </outputs>
                 </component>
                 <component
+                  refId="Package\Procesar archivos Header\SQL Insert Header\Conditional Split"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Procesar archivos Header\SQL Insert Header\Conditional Split.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Procesar archivos Header\SQL Insert Header\Conditional Split.Outputs[ArchivoProcesado]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="ArchivoProcesado"
+                      synchronousInputId="Package\Procesar archivos Header\SQL Insert Header\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">@[User::file_processed]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::file_processed]</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Procesar archivos Header\SQL Insert Header\Conditional Split.Outputs[ArchivoNoHaSidoProcesado]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="ArchivoNoHaSidoProcesado"
+                      synchronousInputId="Package\Procesar archivos Header\SQL Insert Header\Conditional Split.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Procesar archivos Header\SQL Insert Header\Conditional Split.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Procesar archivos Header\SQL Insert Header\Conditional Split.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Procesar archivos Header\SQL Insert Header\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Procesar archivos Header\SQL Insert Header\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Procesar archivos Header\SQL Insert Header\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Procesar archivos Header\SQL Insert Header\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\Procesar archivos Header\SQL Insert Header\Data Conversion"
                   componentClassID="Microsoft.DataConvert"
                   contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -2877,8 +3152,13 @@
               </components>
               <paths>
                 <path
-                  refId="Package\Procesar archivos Header\SQL Insert Header.Paths[Data Conversion Output]"
+                  refId="Package\Procesar archivos Header\SQL Insert Header.Paths[ArchivoNoHaSidoProcesado]"
                   endId="Package\Procesar archivos Header\SQL Insert Header\Row Count.Inputs[Row Count Input 1]"
+                  name="ArchivoNoHaSidoProcesado"
+                  startId="Package\Procesar archivos Header\SQL Insert Header\Conditional Split.Outputs[ArchivoNoHaSidoProcesado]" />
+                <path
+                  refId="Package\Procesar archivos Header\SQL Insert Header.Paths[Data Conversion Output]"
+                  endId="Package\Procesar archivos Header\SQL Insert Header\Conditional Split.Inputs[Conditional Split Input]"
                   name="Data Conversion Output"
                   startId="Package\Procesar archivos Header\SQL Insert Header\Data Conversion.Outputs[Data Conversion Output]" />
                 <path
@@ -2916,10 +3196,26 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Procesar archivos Header.PrecedenceConstraints[Constraint 2]"
           DTS:CreationName=""
-          DTS:DTSID="{8965FE72-403A-475D-9AA2-36867555DCF1}"
+          DTS:DTSID="{33002078-37EA-4C83-ADAF-155CF36E0025}"
           DTS:From="Package\Procesar archivos Header\Log end time"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Procesar archivos Header\Expression Task" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Procesar archivos Header.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{491C2411-7483-4C63-9397-4D9A4157FA7A}"
+          DTS:From="Package\Procesar archivos Header\Revisar bitacora"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Procesar archivos Header\Log start time" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Procesar archivos Header.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{46D2D42B-A247-44F1-A244-2737966310C4}"
+          DTS:From="Package\Procesar archivos Header\Expression Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
           DTS:To="Package\Procesar archivos Header\Registrar carga de registros" />
       </DTS:PrecedenceConstraints>
       <DTS:ForEachVariableMappings>
@@ -2930,6 +3226,26 @@
           DTS:ValueIndex="0"
           DTS:VariableName="User::file_to_process" />
       </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Reset"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{2EB3FB0B-9DE7-4CEC-A2C5-17E7183B3A6F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Reset"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{AC37CE57-5559-48F6-9C8D-F29918087536}"
+          SQLTask:SqlStatementSource="truncate table SalesLT.SalesOrderDetailBSI;&#xA;truncate table SalesLT.SalesOrderHeaderBSI;&#xA;truncate table dbo.bitacora;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
@@ -2997,6 +3313,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 7"
       DTS:To="Package\Procesar archivos Detail" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{1CFE5749-DF5B-4A05-AADF-8A84EFEBDD4E}"
+      DTS:From="Package\Reset"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Leer parametros de servidor FTP desde DB" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -3009,86 +3333,144 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Borrar directorio local"
+          TopLeft="809,565" />
         <ContainerLayout
           HeaderHeight="58"
           IsExpanded="False"
           PanelSize="244,55"
           Size="233,58"
           Id="Package\Cargar parametros del servidor FTP a variables"
-          TopLeft="429.285714285714,55" />
+          TopLeft="440.285714285714,66" />
         <NodeLayout
           Size="232,42"
           Id="Package\Crea directorio local, si no existe"
-          TopLeft="698.285714285714,62" />
+          TopLeft="709.285714285714,73" />
         <NodeLayout
           Size="175,48"
           Id="Package\Descargar archivos a directorio local"
-          TopLeft="771.285714285714,135" />
+          TopLeft="782.285714285714,146" />
         <NodeLayout
           Size="156,42"
           Id="Package\Descomprimir archivo zip"
-          TopLeft="572.785714285714,141" />
+          TopLeft="583.785714285714,152" />
         <NodeLayout
           Size="235,42"
           Id="Package\Extraer contenidos de archivo tar"
-          TopLeft="304.285714285714,144" />
+          TopLeft="315.285714285714,155" />
         <NodeLayout
           Size="189,60"
           Id="Package\Leer parametros de servidor FTP desde DB"
-          TopLeft="216.285714285714,52" />
+          TopLeft="227.285714285714,63" />
         <NodeLayout
-          Size="217,42"
-          Id="Package\Limpia tablas Detail y Header"
-          TopLeft="974.714285714286,69.8571428571428" />
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Procesar archivos Detail\SQL Insert Detail"
-          TopLeft="223.571428571429,28" />
-        <NodeLayout
-          Size="145,42"
-          Id="Package\Procesar archivos Detail\Log start time"
-          TopLeft="31,26" />
-        <EdgeLayout
-          Id="Package\Procesar archivos Detail.PrecedenceConstraints[Constraint]"
-          TopLeft="176,48">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="47.571428571429,0"
-              Start="0,0"
-              End="40.071428571429,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="40.071428571429,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="95,42"
+          Id="Package\Reset"
+          TopLeft="63.714285714286,68.8571428571428" />
         <NodeLayout
           Size="141,42"
           Id="Package\Procesar archivos Detail\Log end time"
-          TopLeft="230,99" />
+          TopLeft="39,97" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Procesar archivos Detail\Log start time"
+          TopLeft="222,23" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Procesar archivos Detail\Registrar carga de registros"
+          TopLeft="226,186" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Procesar archivos Detail\Revisar bitacora"
+          TopLeft="26,23" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Procesar archivos Detail\SQL Insert Detail"
+          TopLeft="232.571428571429,113" />
         <EdgeLayout
-          Id="Package\Procesar archivos Detail.PrecedenceConstraints[Constraint 1]"
-          TopLeft="301.785714285715,70">
+          Id="Package\Procesar archivos Detail.PrecedenceConstraints[Constraint]"
+          TopLeft="294.5,65">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,29"
+              EndConnector="17.571428571429,48"
               Start="0,0"
-              End="0,21.5">
+              End="17.571428571429,40.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.5" />
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="4,24" />
+                  <mssgle:LineSegment
+                    End="13.571428571429,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.571428571429,24"
+                    Point2="17.571428571429,24"
+                    Point3="17.571428571429,28" />
+                  <mssgle:LineSegment
+                    End="17.571428571429,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Procesar archivos Detail.PrecedenceConstraints[Constraint 1]"
+          TopLeft="232.571428571429,134">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-52.571428571429,-16"
+              Start="0,0"
+              End="-45.071428571429,-16">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-22.2857142857145,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.2857142857145,0"
+                    Point2="-26.2857142857145,0"
+                    Point3="-26.2857142857145,-4" />
+                  <mssgle:LineSegment
+                    End="-26.2857142857145,-12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-26.2857142857145,-12"
+                    Point2="-26.2857142857145,-16"
+                    Point3="-30.2857142857145,-16" />
+                  <mssgle:LineSegment
+                    End="-45.071428571429,-16" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Procesar archivos Detail.PrecedenceConstraints[Constraint 3]"
+          TopLeft="180,44">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42,0"
+              Start="0,0"
+              End="34.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="34.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3098,23 +3480,45 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="151,42"
-          Id="Package\Procesar archivos Detail\Registrar carga de registros"
-          TopLeft="34,99" />
+          Size="155,42"
+          Id="Package\Procesar archivos Detail\Expression Task"
+          TopLeft="37,184" />
         <EdgeLayout
           Id="Package\Procesar archivos Detail.PrecedenceConstraints[Constraint 2]"
-          TopLeft="230,120">
+          TopLeft="112,139">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-45,0"
+              EndConnector="0,45"
               Start="0,0"
-              End="-37.5,0">
+              End="0,37.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-37.5,0" />
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Procesar archivos Detail.PrecedenceConstraints[Constraint 4]"
+          TopLeft="192,206">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34,0"
+              Start="0,0"
+              End="26.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="26.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3126,40 +3530,52 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="409,198"
-          Size="409,241"
+          PanelSize="409,259"
+          Size="409,302"
           Id="Package\Procesar archivos Detail"
-          TopLeft="236.928571428571,225" />
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Procesar archivos Header\SQL Insert Header"
-          TopLeft="218.571428571429,18.8571428571429" />
-        <NodeLayout
-          Size="145,42"
-          Id="Package\Procesar archivos Header\Log start time"
-          TopLeft="22.5714285714286,19.8571428571429" />
+          TopLeft="247.928571428571,236" />
         <NodeLayout
           Size="141,42"
           Id="Package\Procesar archivos Header\Log end time"
-          TopLeft="237.571428571429,99.8571428571429" />
+          TopLeft="20.571428571429,103.857142857143" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Procesar archivos Header\Log start time"
+          TopLeft="239.571428571429,22.8571428571429" />
         <NodeLayout
           Size="159,42"
           Id="Package\Procesar archivos Header\Registrar carga de registros"
-          TopLeft="22.5714285714286,100.857142857143" />
+          TopLeft="228.571428571429,186.857142857143" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Procesar archivos Header\SQL Insert Header"
+          TopLeft="218.571428571429,102.857142857143" />
         <EdgeLayout
           Id="Package\Procesar archivos Header.PrecedenceConstraints[Constraint]"
-          TopLeft="167.571428571429,40.3571428571429">
+          TopLeft="312.071428571429,64.8571428571429">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="51,0"
+              EndConnector="-10.4999999999995,38"
               Start="0,0"
-              End="43.5,0">
+              End="-10.4999999999995,30.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="43.5,0" />
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="-4,19" />
+                  <mssgle:LineSegment
+                    End="-6.49999999999955,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.49999999999955,19"
+                    Point2="-10.4999999999995,19"
+                    Point3="-10.4999999999995,23" />
+                  <mssgle:LineSegment
+                    End="-10.4999999999995,30.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3170,18 +3586,48 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Procesar archivos Header.PrecedenceConstraints[Constraint 1]"
-          TopLeft="304.821428571429,60.8571428571429">
+          TopLeft="218.571428571429,124.357142857143">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39"
+              EndConnector="-57,0"
               Start="0,0"
-              End="0,31.5">
+              End="-49.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5" />
+                    End="-49.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Procesar archivos Header\Expression Task"
+          TopLeft="33.571428571429,188.857142857143" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Procesar archivos Header\Revisar bitacora"
+          TopLeft="26.571428571429,27.857142857143" />
+        <EdgeLayout
+          Id="Package\Procesar archivos Header.PrecedenceConstraints[Constraint 3]"
+          TopLeft="180.571428571429,46.3571428571429">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="58.9999999999995,0"
+              Start="0,0"
+              End="51.4999999999995,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="51.4999999999995,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3192,18 +3638,52 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Procesar archivos Header.PrecedenceConstraints[Constraint 2]"
-          TopLeft="237.571428571429,121.357142857143">
+          TopLeft="91.071428571429,145.857142857143">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-56,0"
+              EndConnector="20,43.0000000000001"
               Start="0,0"
-              End="-48.5,0">
+              End="20,35.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-48.5,0" />
+                    End="0,17.5000000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5000000000001"
+                    Point2="0,21.5000000000001"
+                    Point3="4,21.5000000000001" />
+                  <mssgle:LineSegment
+                    End="16,21.5000000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16,21.5000000000001"
+                    Point2="20,21.5000000000001"
+                    Point3="20,25.5000000000001" />
+                  <mssgle:LineSegment
+                    End="20,35.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Procesar archivos Header.PrecedenceConstraints[Constraint 4]"
+          TopLeft="188.571428571429,208.857142857143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.9999999999995,0"
+              Start="0,0"
+              End="32.4999999999995,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="32.4999999999995,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3215,13 +3695,13 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="429,196"
-          Size="429,239"
+          PanelSize="429,259"
+          Size="429,302"
           Id="Package\Procesar archivos Header"
-          TopLeft="678.571428571429,223.857142857143" />
+          TopLeft="689.571428571429,234.857142857143" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="405.285714285714,83">
+          TopLeft="416.285714285714,94">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3243,7 +3723,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="662.285714285714,83.5">
+          TopLeft="673.285714285714,94.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3265,7 +3745,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="771.285714285714,160.5">
+          TopLeft="782.285714285714,171.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3287,7 +3767,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="572.785714285714,163.5">
+          TopLeft="583.785714285714,174.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3309,7 +3789,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="814.285714285714,104">
+          TopLeft="825.285714285714,115">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3343,7 +3823,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="645.928571428571,344.428571428572">
+          TopLeft="656.928571428571,386.428571428572">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3364,8 +3844,30 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="901.535714285714,536.857142857143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.142857142857"
+              Start="0,0"
+              End="0,20.642857142857">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.642857142857" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="421.785714285714,186">
+          TopLeft="432.785714285714,197">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3397,24 +3899,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="180,42"
-          Id="Package\Borrar directorio local"
-          TopLeft="810,489" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="896.535714285714,462.857142857143">
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="158.714285714286,91.4285714285714">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,26.142857142857"
+              EndConnector="68.571428571428,0"
               Start="0,0"
-              End="0,18.642857142857">
+              End="61.071428571428,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.642857142857" />
+                    End="61.071428571428,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3430,45 +3928,37 @@
     design-time-name="Package\Procesar archivos Detail\SQL Insert Detail">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="255,42"
-          Id="Package\Procesar archivos Detail\SQL Insert Detail\Envía registros a SalesOrderDetailBSI"
-          TopLeft="252,106" />
+          Size="155,42"
+          Id="Package\Procesar archivos Detail\SQL Insert Detail\Conditional Split"
+          TopLeft="75,111" />
         <NodeLayout
           Size="174,42"
           Id="Package\Procesar archivos Detail\SQL Insert Detail\Carga archivo Detail"
           TopLeft="56,46" />
         <NodeLayout
+          Size="255,42"
+          Id="Package\Procesar archivos Detail\SQL Insert Detail\Envía registros a SalesOrderDetailBSI"
+          TopLeft="25,278" />
+        <NodeLayout
           Size="130,42"
           Id="Package\Procesar archivos Detail\SQL Insert Detail\Row Count"
-          TopLeft="81,118" />
+          TopLeft="88,200" />
         <EdgeLayout
           Id="Package\Procesar archivos Detail\SQL Insert Detail.Paths[Row Count Output 1]"
-          TopLeft="211,139">
+          TopLeft="152.75,242">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="41,-12"
+              EndConnector="0,36"
               Start="0,0"
-              End="33.5,-12">
+              End="0,28.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="16.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="16.5,0"
-                    Point2="20.5,0"
-                    Point3="20.5,-4" />
-                  <mssgle:LineSegment
-                    End="20.5,-8" />
-                  <mssgle:CubicBezierSegment
-                    Point1="20.5,-8"
-                    Point2="20.5,-12"
-                    Point3="24.5,-12" />
-                  <mssgle:LineSegment
-                    End="33.5,-12" />
+                    End="0,28.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3479,24 +3969,60 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Procesar archivos Detail\SQL Insert Detail.Paths[Flat File Source Output]"
-          TopLeft="144.5,88">
+          TopLeft="143,88">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,30"
+              EndConnector="9.5,23"
               Start="0,0"
-              End="0,22.5">
+              End="9.5,15.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.5" />
+                    End="0,7.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.5"
+                    Point2="0,11.5"
+                    Point3="4,11.5" />
+                  <mssgle:LineSegment
+                    End="5.5,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.5,11.5"
+                    Point2="9.5,11.5"
+                    Point3="9.5,15.5" />
+                  <mssgle:LineSegment
+                    End="9.5,15.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Procesar archivos Detail\SQL Insert Detail.Paths[ArchivoNoHaSidoProcesado]"
+          TopLeft="152.75,153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-61.13009765625,14.87548828125,122.2601953125,9.7490234375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -3519,11 +4045,15 @@
     design-time-name="Package\Procesar archivos Header\SQL Insert Header">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Procesar archivos Header\SQL Insert Header\Row Count"
+          TopLeft="132,253" />
         <NodeLayout
           Size="261,42"
           Id="Package\Procesar archivos Header\SQL Insert Header\Envía registros a SalesOrderHeaderBSI"
-          TopLeft="66,272" />
+          TopLeft="61,330" />
         <NodeLayout
           Size="181,42"
           Id="Package\Procesar archivos Header\SQL Insert Header\Carga archivo Header"
@@ -3554,35 +4084,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="130,42"
-          Id="Package\Procesar archivos Header\SQL Insert Header\Row Count"
-          TopLeft="137,195" />
-        <EdgeLayout
-          Id="Package\Procesar archivos Header\SQL Insert Header.Paths[Data Conversion Output]"
-          TopLeft="199.5,164">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31"
-              Start="0,0"
-              End="0,23.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Procesar archivos Header\SQL Insert Header.Paths[Row Count Output 1]"
-          TopLeft="199.25,237">
+          TopLeft="194.25,295">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3600,6 +4104,68 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Procesar archivos Header\SQL Insert Header\Conditional Split"
+          TopLeft="124,178" />
+        <EdgeLayout
+          Id="Package\Procesar archivos Header\SQL Insert Header.Paths[Data Conversion Output]"
+          TopLeft="119,143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="5,56"
+              Start="0,0"
+              End="-2.5,56">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,52" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,52"
+                    Point2="-22.5,56"
+                    Point3="-18.5,56" />
+                  <mssgle:LineSegment
+                    End="-2.5,56" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Procesar archivos Header\SQL Insert Header.Paths[ArchivoNoHaSidoProcesado]"
+          TopLeft="199.25,220">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-61.13009765625,7.87548828125,122.2601953125,9.7490234375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
